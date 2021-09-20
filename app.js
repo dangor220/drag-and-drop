@@ -3,7 +3,6 @@ const placeholders = document.querySelectorAll('.placeholder');
 
 items.forEach((item) => {
   item.addEventListener('dragstart', (event) => {
-    
     setTimeout(() => {
       event.target.classList.add('hide');
       event.target.classList.add('active');
@@ -19,7 +18,6 @@ items.forEach((item) => {
 for (const placeholder of placeholders) {
   placeholder.addEventListener('dragover', (event) => {
     event.preventDefault();
-
   });
   placeholder.addEventListener('dragenter', (event) => {
     event.target.classList.add('hovered');
@@ -28,9 +26,7 @@ for (const placeholder of placeholders) {
     event.target.classList.remove('hovered');
   });
   placeholder.addEventListener('drop', (event) => {
-
     event.currentTarget.append(isActive());
-    console.log(event.target);
     event.target.classList.remove('hovered');
   });
 }
@@ -38,7 +34,7 @@ for (const placeholder of placeholders) {
 function isActive() {
   for (const item of items) {
     if (item.classList.contains('active')) {
-      return item
-    } 
+      return item;
+    }
   }
 }
